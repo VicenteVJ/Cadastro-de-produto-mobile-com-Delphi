@@ -41,9 +41,7 @@ type
       ind_clear: boolean);
     procedure ThreadProdutoTerminate(Sender: TObject);
     procedure AtualizarLista;
-    { Private declarations }
   public
-    { Public declarations }
   end;
 
 var
@@ -53,6 +51,7 @@ implementation
 
 {$R *.fmx}
 
+// Adiciona um produto à lista de produtos
 procedure TFrmProduto.AddProduto(cod_produto, descricao: string;
                                  valor: double;
                                  foto : TStream);
@@ -97,22 +96,25 @@ begin
     end;
 end;
 
-
+// Botão de busca clicado
 procedure TFrmProduto.btnBuscaClick(Sender: TObject);
 begin
     ListarProdutos(1, edtBusca.Text, true);
 end;
 
+// Ao mostrar o formulário, lista os produtos
 procedure TFrmProduto.FormShow(Sender: TObject);
 begin
     ListarProdutos(1, edtBusca.Text, true);
 end;
 
+// Atualiza a lista de produtos
 procedure TFrmProduto.AtualizarLista;
 begin
     ListarProdutos(1, edtBusca.Text, true);
 end;
 
+// Clique no botão de adicionar
 procedure TFrmProduto.imgAddClick(Sender: TObject);
 begin
     if NOT Assigned(FrmProdutoCad) then
@@ -124,6 +126,7 @@ begin
     FrmProdutoCad.Show;
 end;
 
+// Tratamento de término de thread
 procedure TFrmProduto.ThreadProdutoTerminate(Sender: TObject);
 begin
     lvProdutos.EndUpdate;
@@ -142,6 +145,7 @@ begin
     end;
 end;
 
+// Lista os produtos
 procedure TFrmProduto.ListarProdutos(pagina: integer; busca: string; ind_clear: boolean);
 var
     t: TThread;
@@ -166,7 +170,7 @@ begin
     {
     Tag: contem a pagina atual solicitada ao servidor...
     >= 1 : faz o request para buscar mais dados
-    -1 : indica que n�o tem mais dados
+    -1 : indica que não tem mais dados
     }
     // Salva a pagina atual a ser exibida...
     lvProdutos.Tag := pagina;
@@ -206,6 +210,7 @@ begin
     t.Start;
 end;
 
+// Clique em um item da lista de produtos
 procedure TFrmProduto.lvProdutosItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
