@@ -20,16 +20,10 @@ type
     procedure DataModuleCreate(Sender: TObject);
     procedure ConnAfterConnect(Sender: TObject);
   private
-    { Private declarations }
   public
     procedure ListarProdutos(pagina: integer; busca: string);
-    procedure CadastrarProduto(descricao: string;
-                                      valor: double;
-                                      foto: TBitmap);
-    procedure EditarProduto(cod_produto: integer;
-                                   descricao: string;
-                                   valor: double;
-                                   foto: TBitmap);
+    procedure CadastrarProduto(descricao: string; valor: double; foto: TBitmap);
+    procedure EditarProduto(cod_produto: integer; descricao: string; valor: double; foto: TBitmap);
     procedure ExcluirProduto(cod_produto: integer);
   end;
 
@@ -42,25 +36,7 @@ implementation
 
 {$R *.dfm}
 
-procedure TDmProduto.ConnAfterConnect(Sender: TObject);
-var
-    x : integer;
-begin
-    Conn.ExecSQL('CREATE TABLE IF NOT EXISTS TAB_PRODUTO ( ' +
-                            'COD_PRODUTO   INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
-                            'DESCRICAO           VARCHAR (200), ' +
-                            'VALOR               DECIMAL (12, 2), ' +
-                            'FOTO                BLOB);'
-                );
-
-
-    for x := 51 to 3000 do
-        Conn.ExecSQL('INSERT INTO TAB_PRODUTO (DESCRICAO, VALOR, FOTO) VALUES(''Produto de Teste ' +
-                    FormatFloat('00', x) + ''', ' + (100 + x).ToString + ', null)');
-
-
-end;
-
+// Executado antes da conexão com o banco de dados
 procedure TDmProduto.ConnBeforeConnect(Sender: TObject);
 begin
     Conn.DriverName := 'SQLite';
@@ -72,11 +48,24 @@ begin
     {$ENDIF}
 end;
 
+// Executado ao criar o módulo de dados
 procedure TDmProduto.DataModuleCreate(Sender: TObject);
 begin
     Conn.Connected := true;
 end;
 
+// Executado após conectar ao banco de dados
+procedure TDmProduto.ConnAfterConnect(Sender: TObject);
+begin
+    Conn.ExecSQL('CREATE TABLE IF NOT EXISTS TAB_PRODUTO ( ' +
+                            'COD_PRODUTO   INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, ' +
+                            'DESCRICAO           VARCHAR (200), ' +
+                            'VALOR               DECIMAL (12, 2), ' +
+                            'FOTO                BLOB);'
+                );
+end;
+
+// Lista os produtos de acordo com a página e a busca especificada
 procedure TDmProduto.ListarProdutos(pagina: integer; busca: string);
 begin
     qryProduto.Active := false;
@@ -84,7 +73,7 @@ begin
     qryProduto.SQL.Add('SELECT P.* ');
     qryProduto.SQL.Add('FROM TAB_PRODUTO P');
 
-    // Filtro...
+    // Filtro por busca
     if busca <> '' then
     begin
         qryProduto.SQL.Add('WHERE P.DESCRICAO LIKE :BUSCA ');
@@ -98,10 +87,8 @@ begin
     qryProduto.Active := true;
 end;
 
-
-procedure TDmProduto.CadastrarProduto(descricao: string;
-                                      valor: double;
-                                      foto: TBitmap);
+// Cadastra um novo produto
+procedure TDmProduto.CadastrarProduto(descricao: string; valor: double; foto: TBitmap);
 begin
     with qryCadProduto do
     begin
@@ -116,10 +103,8 @@ begin
     end;
 end;
 
-procedure TDmProduto.EditarProduto(cod_produto: integer;
-                                   descricao: string;
-                                   valor: double;
-                                   foto: TBitmap);
+// Edita um produto existente
+procedure TDmProduto.EditarProduto(cod_produto: integer; descricao: string; valor: double; foto: TBitmap);
 begin
     with qryCadProduto do
     begin
@@ -135,6 +120,7 @@ begin
     end;
 end;
 
+// Exclui um produto existente
 procedure TDmProduto.ExcluirProduto(cod_produto: integer);
 begin
     with qryCadProduto do
@@ -146,6 +132,5 @@ begin
         ExecSQL;
     end;
 end;
-
 
 end.
