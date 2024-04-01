@@ -1,12 +1,3 @@
-/////////////////////////////////////////////////////////////////////////////
-{
-    Unit u99Permissions
-    Criação: 99 Coders (Heber Stein Mazutti - @99coders)
-    Versão: 2.0
-}
-/////////////////////////////////////////////////////////////////////////////
-
-
 unit u99Permissions;
 
 interface
@@ -29,7 +20,7 @@ type
         CurrentRequest : string;
         pCamera, pReadStorage, pWriteStorage : string; // Camera / Library
         pFineLocation, pCoarseLocation : string; // GPS
-        pPhoneState : string; // Phone State
+        pPhoneState : string; // Estado do telefone
         pWakeLock : string;
 
         procedure PermissionRequestResult( Sender: TObject;
@@ -113,7 +104,7 @@ begin
 
     // LIBRARY (READ_EXTERNAL_STORAGE + WRITE_EXTERNAL_STORAGE)
     if CurrentRequest = 'LIBRARY' then
-    begin        
+    begin
         if (Length(AGrantResults) = 2) and
            (AGrantResults[0] = TPermissionStatus.Granted) and
            (AGrantResults[1] = TPermissionStatus.Granted) then
@@ -125,7 +116,7 @@ begin
         end;
     end;
 
-    // LOCATION (ACCESS_COARSE_LOCATION + ACCESS_FINE_LOCATION)
+    // LOCALIZAcaO (ACCESS_COARSE_LOCATION + ACCESS_FINE_LOCATION)
     if CurrentRequest = 'LOCATION' then
     begin
         if (Length(AGrantResults) = 2) and
@@ -133,13 +124,13 @@ begin
            (AGrantResults[1] = TPermissionStatus.Granted) then
         begin
             ret := true;
-            
-            if Assigned(MyCallBack) then            
+
+            if Assigned(MyCallBack) then
                 MyCallBack(Self);
         end;
     end;
 
-    // PHONE STATE
+    // ESTADO DO TELEFONE
     if CurrentRequest = 'READ_PHONE_STATE' then
     begin
         if (Length(AGrantResults) = 1) and
@@ -152,7 +143,7 @@ begin
         end;
     end;
 
-    if NOT ret then    
+    if NOT ret then
     begin
         if Assigned(MyCallBackError) then
             MyCallBackError(Self);
@@ -188,7 +179,7 @@ begin
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('NÃ£o suportado no Windows');
     {$ENDIF}
 end;
 
@@ -209,7 +200,7 @@ begin
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('NÃ£o suportado no Windows');
     {$ENDIF}
 end;
 
@@ -232,7 +223,7 @@ begin
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('NÃ£o suportado no Windows');
     {$ENDIF}
 end;
 
@@ -254,7 +245,7 @@ begin
     {$ENDIF}
 
     {$IFDEF MSWINDOWS}
-    TDialogService.ShowMessage('Não suportado no Windows');
+    TDialogService.ShowMessage('NÃ£o suportado no Windows');
     {$ENDIF}
 end;
 
@@ -270,5 +261,6 @@ begin
     Result := true;
     {$ENDIF}
 end;
+
 
 end.
