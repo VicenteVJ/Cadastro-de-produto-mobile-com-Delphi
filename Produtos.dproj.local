@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/11/16 11:08:17.000.563,=C:\Users\INTEL\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2021/11/16 12:50:48.000.217,=C:\Users\INTEL\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 13:32:06.000.179,=C:\Users\INTEL\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 13:32:49.000.680,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\FontesFull\UnitProduto.fmx=C:\Users\INTEL\Documents\Embarcadero\Studio\Projects\Unit1.fmx</Transaction>
+    <Transaction>2022/08/22 13:32:49.000.680,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\FontesFull\UnitProduto.pas=C:\Users\INTEL\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 13:32:55.000.599,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\FontesFull\Produtos.dproj=C:\Users\INTEL\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2022/08/22 20:28:31.889,=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 20:28:52.532,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\UnitProdutoCad.pas=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 20:28:52.532,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\UnitProdutoCad.fmx=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Unit1.fmx</Transaction>
+    <Transaction>2022/08/22 20:42:55.102,=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 20:43:47.668,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\DataModules\DataModule.Produto.dfm=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Unit1.dfm</Transaction>
+    <Transaction>2022/08/22 20:43:47.668,D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\DataModules\DataModule.Produto.pas=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Unit1.pas</Transaction>
+    <Transaction>2022/08/22 21:37:23.129,=D:\99Coders\Posts\316 - Criando um cadastro de produto mobile para seu ERP ---------\Fontes\Units\u99Permissions.pas</Transaction>
+  </Transactions>
+	<ActiveMobileDevice>
+		<PMacMini iOSSimulator="iPhone5"/>  <NoProfile Android="5200711f02614531"/>
+  </ActiveMobileDevice>
+</BorlandProject>
