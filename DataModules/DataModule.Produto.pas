@@ -63,6 +63,12 @@ begin
                             'VALOR               DECIMAL (12, 2), ' +
                             'FOTO                BLOB);'
                 );
+   {
+    for x := 51 to 3000 do
+        Conn.ExecSQL('INSERT INTO TAB_PRODUTO (DESCRICAO, VALOR, FOTO) VALUES(''Produto de Teste ' +
+                    FormatFloat('00', x) + ''', ' + (100 + x).ToString + ', null)');
+     }
+                
 end;
 
 // Lista os produtos de acordo com a página e a busca especificada
